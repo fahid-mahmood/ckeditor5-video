@@ -46,6 +46,32 @@ export default class UploadVideoCommand extends Command {
       return;
     }
 
-    videoUtils.insertVideo({ controls: true, ...attributes, uploadId: loader.id }, position);
+    // Determine default resize value for newly inserted videos based on a configured default option.
+    // Respect existing width if already provided via selection attributes.
+    let width = attributes && Object.prototype.hasOwnProperty.call(attributes, "width")
+      ? attributes.width
+      : undefined;
+
+    if (width === undefined) {
+      const options = editor.config.get("video.resizeOptions") || [];
+      const unit = editor.config.get("video.resizeUnit") || "%";
+      const defaultOption = options.find((opt) => opt && opt.default === true);
+
+      if (defaultOption) {
+        if (defaultOption.value != null) {
+          width = String(defaultOption.value) + unit;
+        } else {
+          // Explicit default to original size -> leave width undefined
+          width = undefined;
+        }
+      }
+    }
+
+    const insertAttrs = { controls: true, ...attributes, uploadId: loader.id };
+    if (width !== undefined) {
+      insertAttrs.width = width;
+    }
+
+    videoUtils.insertVideo(insertAttrs, position);
   }
 }

@@ -92,6 +92,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
         label: "25",
         icon: "small",
         value: "25",
+        default: true,
       },
       {
         name: "videoResize:50",

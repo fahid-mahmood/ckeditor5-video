@@ -19,6 +19,16 @@
       }
 }
 
+.ck-content .video-inline.video_resized {
+    max-width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+
+    & video {
+          width: 100%;
+      }
+}
+
 [dir="ltr"] .ck.ck-button.ck-button_with-text.ck-resize-video-button .ck-button__icon {
     margin-right: var(--ck-spacing-standard);
 }

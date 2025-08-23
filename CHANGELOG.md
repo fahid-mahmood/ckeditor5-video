@@ -14,6 +14,13 @@ Changes for the past releases below.
   - `@ckeditor/ckeditor5-core/src/command` → `{ Command }` from `@ckeditor/ckeditor5-core`.
 * Verified the sample build with Webpack 5. No runtime errors observed in build output.
 
+### Fixed
+* Video resizing now works for inline videos (`video-inline`). Resizing styles were updated so width changes apply without requiring an alignment change.
+* Resize handles operate on inline videos without needing to center-align first.
+
+### Added
+* Support for selecting a default resize option for uploads via `default: true` in `video.resizeOptions`. If the default option specifies a numeric `value`, that width is applied using `video.resizeUnit`. If the default points to Original (`value: null`) or if no option is marked as default, uploads keep Original size.
+
 ### Notes
 * Requires Node.js 18+ (tested with Node 20.18.x).
 * Predefined builds (`@ckeditor/ckeditor5-build-*`) are deprecated upstream; this package continues to work with modular plugins.
