@@ -22,7 +22,13 @@ Add this to your custom build or inside your project.
 
 -With yarn
 
-`yarn add -D @visao/@visao/ckeditor5-video    `
+`yarn add -D @visao/ckeditor5-video`
+## Compatibility
+
+- This package now targets CKEditor 5 v43.3.x.
+- Use Node.js 18+.
+- Avoid deep imports such as `@ckeditor/ckeditor5-*/src/*`; prefer public entry points (e.g., `@ckeditor/ckeditor5-clipboard`).
+
 - Works pretty much just like Image upload. 
 
 ## Plugins

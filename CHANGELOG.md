@@ -3,6 +3,21 @@ Changelog
 
 Changes for the past releases below.
 
+## 43.3.0 (2025-08-23)
+### Upgraded
+* CKEditor 5 dependencies to 43.3.x (core, engine, utils, widget, ui, etc.).
+* Tooling packages updated to v43 where applicable (dev-utils, dev-translations).
+
+### Migration
+* Replaced deprecated deep imports with public API where available:
+  - `@ckeditor/ckeditor5-clipboard/src` → `@ckeditor/ckeditor5-clipboard`.
+  - `@ckeditor/ckeditor5-core/src/command` → `{ Command }` from `@ckeditor/ckeditor5-core`.
+* Verified the sample build with Webpack 5. No runtime errors observed in build output.
+
+### Notes
+* Requires Node.js 18+ (tested with Node 20.18.x).
+* Predefined builds (`@ckeditor/ckeditor5-build-*`) are deprecated upstream; this package continues to work with modular plugins.
+
 ## 29.1.0(2021-09-04)
 ### Upgraded
 * CkEditor5 dependencies to v29.1.0

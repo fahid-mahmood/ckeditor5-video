@@ -1,7 +1,7 @@
 import { Plugin } from "@ckeditor/ckeditor5-core";
 import { UpcastWriter } from "@ckeditor/ckeditor5-engine";
 import { Notification } from "@ckeditor/ckeditor5-ui";
-import { ClipboardPipeline } from "@ckeditor/ckeditor5-clipboard/src";
+import { ClipboardPipeline } from "@ckeditor/ckeditor5-clipboard";
 import { FileRepository } from "@ckeditor/ckeditor5-upload";
 import { env } from "@ckeditor/ckeditor5-utils";
 import VideoUtils from "../videoutils";
