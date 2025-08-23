@@ -17,12 +17,12 @@ Add this to your custom build or inside your project.
 
 - With npm
 
-`npm install --save-dev @visao/ckeditor5-video`
+`npm install --save-dev git+https://github.com/fahid-mahmood/ckeditor5-video.git`
 
 
 -With yarn
 
-`yarn add -D @visao/ckeditor5-video`
+`yarn add -D https://github.com/fahid-mahmood/ckeditor5-video.git`
 ## Compatibility
 
 - This package now targets CKEditor 5 v43.3.x.
