@@ -3,12 +3,27 @@
     clear: both;
     text-align: center;
     margin: 1em auto;
+    vertical-align: middle;
 
     & video {
         display: block;
         margin: 0 auto;
         max-width: 100%;
         min-width: 50px;
+    }
+}
+
+/* Apply slim height to audio-like sources only*/
+.ck-content .video > video[data-audio="true"],
+.ck-content .video-inline > video[data-audio="true"] {
+    height: 62px !important;
+}
+
+/* Safari-only override: increase audio-like control height to 90px */
+@supports (font: -apple-system-body) {
+    .ck-content .video > video[data-audio="true"],
+    .ck-content .video-inline > video[data-audio="true"] {
+        height: 90px !important;
     }
 }
 

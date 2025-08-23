@@ -61,5 +61,20 @@ export function downcastVideoAttribute(videoUtils, videoType, attributeKey) {
       data.attributeNewValue || "",
       video
     );
+
+    // If the "src" attribute is being updated, detect audio-like sources and mark them
+    // so they can be styled consistently (e.g., slim height). Resizers remain enabled.
+    if (data.attributeKey === "src") {
+      const srcValue = data.attributeNewValue || "";
+      const isAudio =
+        typeof srcValue === "string" &&
+        (/\.(mp3|wav|ogg)(?:$|[?#])/i.test(srcValue) || srcValue.startsWith("data:audio/"));
+
+      if (isAudio) {
+        viewWriter.setAttribute("data-audio", "true", video);
+      } else {
+        viewWriter.removeAttribute("data-audio", video);
+      }
+    }
   }
 }
