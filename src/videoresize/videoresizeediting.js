@@ -92,9 +92,12 @@ export default class VideoResizeEditing extends Plugin {
       )
     );
 
+    // Upcast width style only for videoBlock figures with class 'video' or for video elements
     editor.conversion.for("upcast").attributeToAttribute({
       view: {
         name: videoType === "videoBlock" ? "figure" : "video",
+        // Only process block resize on <figure class="video"> to avoid tables
+        ...(videoType === "videoBlock" && { classes: "video" }),
         styles: {
           width: /.+/,
         },

@@ -64,7 +64,14 @@ export default class VideoStyleEditing extends Plugin {
 
     if (isBlockPluginLoaded) {
       schema.extend("videoBlock", { allowAttributes: "videoStyle" });
-      editor.data.upcastDispatcher.on("element:figure", viewToModelConverter, {
+      // Only convert styles for <figure class="video"> to model videoBlock
+      editor.data.upcastDispatcher.on("element:figure", (evt, data, conversionApi) => {
+        const viewElement = data.viewItem;
+        if (!viewElement.hasClass || !viewElement.hasClass("video")) {
+          return;
+        }
+        viewToModelConverter(evt, data, conversionApi);
+      }, {
         priority: "low",
       });
     }

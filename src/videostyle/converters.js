@@ -44,7 +44,16 @@ export function viewToModelStyleAttribute(styles) {
       return;
     }
 
-    for (const style of nonDefaultStyles[modelVideoElement.name]) {
+    // Skip if the element is not a video model element or has no defined styles
+    const stylesForElement = nonDefaultStyles[modelVideoElement.name];
+    if (!Array.isArray(stylesForElement) || stylesForElement.length === 0) {
+      console.warn(
+        `VideoStyle converter: skipping non-video or unsupported element '${modelVideoElement.name}'.`
+      );
+      return;
+    }
+
+    for (const style of stylesForElement) {
       if (
         conversionApi.consumable.consume(viewElement, {
           classes: style.className,
