@@ -79,21 +79,31 @@ ClassicEditor.create(document.querySelector("#editor"), {
     styles: ["alignLeft", "alignCenter", "alignRight"],
 
     // Configure the available video resize options.
+    // Provide explicit values so the buttons execute with a target width.
     resizeOptions: [
       {
         name: "videoResize:original",
         label: "Original",
         icon: "original",
+        value: null,
+      },
+      {
+        name: "videoResize:25",
+        label: "25",
+        icon: "small",
+        value: "25",
       },
       {
         name: "videoResize:50",
         label: "50",
         icon: "medium",
+        value: "50",
       },
       {
         name: "videoResize:75",
         label: "75",
         icon: "large",
+        value: "75",
       },
     ],
 
@@ -104,6 +114,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
       "videoStyle:alignCenter",
       "videoStyle:alignRight",
       "|",
+      "videoResize:25",
       "videoResize:50",
       "videoResize:75",
       "videoResize:original",

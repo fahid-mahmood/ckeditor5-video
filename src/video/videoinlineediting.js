@@ -77,6 +77,10 @@ export default class VideoInlineEditing extends Plugin {
       .for("downcast")
       .add(downcastVideoAttribute(videoUtils, "videoInline", "src"));
 
+    conversion
+      .for("downcast")
+      .add(downcastVideoAttribute(videoUtils, "videoInline", "controls"));
+
     conversion.for("upcast").elementToElement({
       view: getVideoViewElementMatcher(editor, "videoInline"),
       model: (viewVideo, { writer }) =>

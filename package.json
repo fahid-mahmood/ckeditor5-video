@@ -1,6 +1,6 @@
 {
   "name": "@visao/ckeditor5-video",
-  "version": "42.0.0",
+  "version": "43.3.1",
   "description": "Video features for CKEditor 5 (like Image features).",
   "keywords": [
     "ckeditor",

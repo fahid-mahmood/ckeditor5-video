@@ -46,6 +46,6 @@ export default class UploadVideoCommand extends Command {
       return;
     }
 
-    videoUtils.insertVideo({ ...attributes, uploadId: loader.id }, position);
+    videoUtils.insertVideo({ controls: true, ...attributes, uploadId: loader.id }, position);
   }
 }

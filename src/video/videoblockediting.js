@@ -70,6 +70,10 @@ export default class VideoBlockEditing extends Plugin {
       .add(downcastVideoAttribute(videoUtils, "videoBlock", "src"));
 
     conversion
+      .for("downcast")
+      .add(downcastVideoAttribute(videoUtils, "videoBlock", "controls"));
+
+    conversion
       .for("upcast")
       .elementToElement({
         view: getVideoViewElementMatcher(editor, "videoBlock"),
