@@ -6,6 +6,7 @@ import VideoResize from "../src/videoresize";
 import VideoToolbar from "../src/videotoolbar";
 import VideoStyle from "../src/videostyle";
 import VideoInsert from "../src/videoinsert";
+import 'ckeditor5/ckeditor5.css';
 
 class VideoUploadAdapter {
   constructor(loader) {

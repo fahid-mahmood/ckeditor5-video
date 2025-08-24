@@ -1,10 +1,20 @@
 import { Plugin } from "ckeditor5";
 import { FileRepository } from "ckeditor5";
-import uploadingPlaceholder from "../../theme/icons/video_placeholder.svg";
 
 import "../../theme/videouploadprogress.css";
 import "../../theme/videouploadicon.css";
 import "../../theme/videouploadloader.css";
+
+// Video placeholder SVG for upload progress
+const VIDEO_PLACEHOLDER = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250">
+  <rect rx="4" fill="#f5f5f5" stroke="#ddd" stroke-width="2" width="698" height="248" x="1" y="1"/>
+  <g fill="#999">
+    <circle cx="350" cy="100" r="30" fill="#e0e0e0"/>
+    <polygon points="340,85 340,115 365,100" fill="#999"/>
+  </g>
+  <text x="350" y="150" text-anchor="middle" fill="#999" font-family="Arial, sans-serif" font-size="16" font-weight="500">Loading Video...</text>
+  <text x="350" y="175" text-anchor="middle" fill="#bbb" font-family="Arial, sans-serif" font-size="12">Please wait while your video uploads</text>
+</svg>`;
 
 export default class VideoUploadProgress extends Plugin {
   static get pluginName() {
@@ -14,8 +24,7 @@ export default class VideoUploadProgress extends Plugin {
   constructor(editor) {
     super(editor);
 
-    this.placeholder =
-      "data:video/svg+xml;utf8," + encodeURIComponent(uploadingPlaceholder);
+    this.placeholder = "data:image/svg+xml;utf8," + encodeURIComponent(VIDEO_PLACEHOLDER);
   }
 
   init() {
@@ -111,6 +120,10 @@ function _showPlaceholder(videoUtils, placeholder, viewFigure, writer) {
 
   const viewVideo = videoUtils.findViewVideoElement(viewFigure);
 
+  if (!viewVideo || !viewVideo.getAttribute) {
+    return;
+  }
+
   if (viewVideo.getAttribute("src") !== placeholder) {
     writer.setAttribute("src", placeholder, viewVideo);
   }
@@ -199,6 +212,8 @@ function _displayLocalVideo(videoUtils, viewFigure, writer, loader) {
   if (loader.data) {
     const viewVideo = videoUtils.findViewVideoElement(viewFigure);
 
-    writer.setAttribute("src", loader.data, viewVideo);
+    if (viewVideo && viewVideo.setAttribute) {
+      writer.setAttribute("src", loader.data, viewVideo);
+    }
   }
 }
