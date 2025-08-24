@@ -1,5 +1,5 @@
-import { Plugin } from "@ckeditor/ckeditor5-core";
-import { FileDialogButtonView } from "@ckeditor/ckeditor5-ui";
+import { Plugin } from "ckeditor5";
+import { FileDialogButtonView } from "ckeditor5";
 import videoUploadIcon from "../../theme/icons/video.svg";
 import { createVideoTypeRegExp } from "./utils";
 

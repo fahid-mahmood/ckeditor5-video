@@ -1,4 +1,4 @@
-import { BalloonPanelView } from "@ckeditor/ckeditor5-ui";
+import { BalloonPanelView } from "ckeditor5";
 
 export function repositionContextualBalloon(editor) {
   const balloon = editor.plugins.get("ContextualBalloon");

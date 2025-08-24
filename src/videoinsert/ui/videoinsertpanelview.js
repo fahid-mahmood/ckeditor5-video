@@ -1,4 +1,4 @@
-import { icons } from "@ckeditor/ckeditor5-core";
+import { icons } from "ckeditor5";
 import {
   ButtonView,
   View,
@@ -7,12 +7,12 @@ import {
   submitHandler,
   createDropdown,
   FocusCycler,
-} from "@ckeditor/ckeditor5-ui";
+} from "ckeditor5";
 import {
   Collection,
   FocusTracker,
   KeystrokeHandler,
-} from "@ckeditor/ckeditor5-utils";
+} from "ckeditor5";
 
 import VideoInsertFormRowView from "./videoinsertformrowview";
 

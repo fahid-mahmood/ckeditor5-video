@@ -1,4 +1,4 @@
-import { first } from "@ckeditor/ckeditor5-utils";
+import { first } from "ckeditor5";
 
 export function upcastVideoFigure(videoUtils) {
   return (dispatcher) => {

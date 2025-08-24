@@ -1,6 +1,6 @@
-import { FileRepository } from "@ckeditor/ckeditor5-upload";
-import { Command } from "@ckeditor/ckeditor5-core";
-import { toArray } from "@ckeditor/ckeditor5-utils";
+import { FileRepository } from "ckeditor5";
+import { Command } from "ckeditor5";
+import { toArray } from "ckeditor5";
 
 export default class UploadVideoCommand extends Command {
   refresh() {

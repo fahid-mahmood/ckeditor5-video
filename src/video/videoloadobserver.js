@@ -1,4 +1,4 @@
-import { Observer } from "@ckeditor/ckeditor5-engine";
+import { Observer } from "ckeditor5";
 
 export default class VideoLoadObserver extends Observer {
   observe(domRoot) {

@@ -1,14 +1,13 @@
-import { Plugin, icons } from "@ckeditor/ckeditor5-core";
+import { Plugin, icons } from "ckeditor5";
 import {
   ButtonView,
   DropdownButtonView,
-  // Model,
+  Model,
   createDropdown,
   addListToDropdown,
-} from "@ckeditor/ckeditor5-ui";
+} from "ckeditor5";
 
-import Model from "@ckeditor/ckeditor5-ui/src/model";
-import { CKEditorError, Collection } from "@ckeditor/ckeditor5-utils";
+import { CKEditorError, Collection } from "ckeditor5";
 import VideoResizeEditing from "./videoresizeediting";
 
 const RESIZE_ICONS = {

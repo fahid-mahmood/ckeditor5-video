@@ -1,5 +1,4 @@
-import { Plugin } from "@ckeditor/ckeditor5-core";
-import { Widget } from "@ckeditor/ckeditor5-widget";
+import { Plugin, Widget } from "ckeditor5";
 
 import VideoInlineEditing from "./video/videoinlineediting";
 

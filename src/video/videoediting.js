@@ -1,4 +1,4 @@
-import { Plugin } from "@ckeditor/ckeditor5-core";
+import { Plugin } from "ckeditor5";
 import VideoLoadObserver from "./videoloadobserver";
 import InsertVideoCommand from "./insertvideocommand";
 import VideoUtils from "../videoutils";

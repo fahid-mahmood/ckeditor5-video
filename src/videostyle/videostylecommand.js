@@ -1,4 +1,4 @@
-import { Command } from "@ckeditor/ckeditor5-core";
+import { Command } from "ckeditor5";
 
 export default class VideoStyleCommand extends Command {
   constructor(editor, styles) {

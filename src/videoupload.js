@@ -1,4 +1,4 @@
-import { Plugin } from "@ckeditor/ckeditor5-core";
+import { Plugin } from "ckeditor5";
 import VideoUploadUI from "./videoupload/videouploadui";
 import VideoUploadEditing from "./videoupload/videouploadediting";
 import VideoUploadProgress from "./videoupload/videouploadprogress";

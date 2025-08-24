@@ -1,9 +1,9 @@
-import { Plugin } from "@ckeditor/ckeditor5-core";
-import { UpcastWriter } from "@ckeditor/ckeditor5-engine";
-import { Notification } from "@ckeditor/ckeditor5-ui";
-import { ClipboardPipeline } from "@ckeditor/ckeditor5-clipboard";
-import { FileRepository } from "@ckeditor/ckeditor5-upload";
-import { env } from "@ckeditor/ckeditor5-utils";
+import { Plugin } from "ckeditor5";
+import { UpcastWriter } from "ckeditor5";
+import { Notification } from "ckeditor5";
+import { ClipboardPipeline } from "ckeditor5";
+import { FileRepository } from "ckeditor5";
+import { env } from "ckeditor5";
 import VideoUtils from "../videoutils";
 import UploadVideoCommand from "./uploadvideocommand";
 import { fetchLocalVideo, isLocalVideo, createVideoTypeRegExp } from "./utils";

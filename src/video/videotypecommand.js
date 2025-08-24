@@ -1,4 +1,4 @@
-import { Command } from "@ckeditor/ckeditor5-core";
+import { Command } from "ckeditor5";
 
 export default class VideoTypeCommand extends Command {
   constructor(editor, modelElementName) {

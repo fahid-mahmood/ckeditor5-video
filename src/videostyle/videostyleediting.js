@@ -1,4 +1,4 @@
-import { Plugin } from "@ckeditor/ckeditor5-core";
+import { Plugin } from "ckeditor5";
 import VideoStyleCommand from "./videostylecommand";
 import VideoUtils from "../videoutils";
 import utils from "./utils";
