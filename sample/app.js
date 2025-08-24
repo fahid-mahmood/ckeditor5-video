@@ -68,7 +68,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
   ],
   video: {
     upload: {
-      types: ["mp4", "mp3"],
+      types: ["mp4", "mp3", "wav", "ogg", "webm"],
       allowMultipleFiles: false,
     },
     styles: ["alignLeft", "alignCenter", "alignRight"],

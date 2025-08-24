@@ -2,7 +2,29 @@ import { global } from "ckeditor5";
 
 export function createVideoTypeRegExp(types) {
   const regExpSafeNames = types.map((type) => type.replace("+", "\\+"));
-  return new RegExp(`^video\\/(${regExpSafeNames.join("|")})$`);
+  const audioFormats = ["mp3", "wav", "ogg", "m4a", "aac"];
+  
+  const videoTypes = [];
+  const audioTypes = [];
+  
+  types.forEach((type) => {
+    const safeName = type.replace("+", "\\+");
+    if (audioFormats.includes(type)) {
+      audioTypes.push(safeName);
+    } else {
+      videoTypes.push(safeName);
+    }
+  });
+  
+  const patterns = [];
+  if (videoTypes.length > 0) {
+    patterns.push(`^video\\/(${videoTypes.join("|")})$`);
+  }
+  if (audioTypes.length > 0) {
+    patterns.push(`^audio\\/(${audioTypes.join("|")})$`);
+  }
+  
+  return new RegExp(patterns.join("|"));
 }
 
 export function fetchLocalVideo(video) {

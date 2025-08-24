@@ -47,8 +47,9 @@ ClassicEditor
 ```
 
 #### VideoUpload Plugin 
-- Plugin to upload video files via toolbar upload prompt or drag and drop functionalities 
-- Specify allowed media(mime) types. Default => `['mp4', 'webm', 'ogg']`
+- Plugin to upload video and audio files via toolbar upload prompt or drag and drop functionalities 
+- Specify allowed media(mime) types. Default => `['mp4', 'webm', 'ogg', 'mp3', 'wav']`
+- Supports both video formats (mp4, webm, etc.) and audio formats (mp3, wav, ogg, etc.)
 - Allow multiple file upload or not, Default => `true`
 - Add the `videoUpload` toolbar option to access the file repository 
 - Must provide an `UploadAdapter`. 
