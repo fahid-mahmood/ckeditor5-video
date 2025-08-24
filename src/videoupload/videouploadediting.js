@@ -83,7 +83,7 @@ export default class VideoUploadEditing extends Plugin {
             );
           }
 
-          editor.model.enqueueChange("default", () => {
+          editor.model.enqueueChange(editor.model.createBatch(), () => {
             editor.execute("uploadVideo", { file: videos });
           });
         });
@@ -220,7 +220,7 @@ export default class VideoUploadEditing extends Plugin {
     const videoUtils = editor.plugins.get("VideoUtils");
     const videoUploadElements = this._uploadVideoElements;
 
-    model.enqueueChange("transparent", (writer) => {
+    model.enqueueChange(model.createBatch({ isUndoable: false }), (writer) => {
       writer.setAttribute(
         "uploadStatus",
         "reading",
@@ -261,14 +261,14 @@ export default class VideoUploadEditing extends Plugin {
           });
         }
 
-        model.enqueueChange("transparent", (writer) => {
+        model.enqueueChange(model.createBatch({ isUndoable: false }), (writer) => {
           writer.setAttribute("uploadStatus", "uploading", videoElement);
         });
 
         return promise;
       })
       .then((data) => {
-        model.enqueueChange("transparent", (writer) => {
+        model.enqueueChange(model.createBatch({ isUndoable: false }), (writer) => {
           const videoElement = videoUploadElements.get(loader.id);
 
           writer.setAttribute("uploadStatus", "complete", videoElement);
@@ -290,7 +290,7 @@ export default class VideoUploadEditing extends Plugin {
           });
         }
 
-        model.enqueueChange("transparent", (writer) => {
+        model.enqueueChange(model.createBatch({ isUndoable: false }), (writer) => {
           writer.remove(videoUploadElements.get(loader.id));
         });
 
@@ -298,7 +298,7 @@ export default class VideoUploadEditing extends Plugin {
       });
 
     function clean() {
-      model.enqueueChange("transparent", (writer) => {
+      model.enqueueChange(model.createBatch({ isUndoable: false }), (writer) => {
         const videoElement = videoUploadElements.get(loader.id);
 
         writer.removeAttribute("uploadId", videoElement);
